@@ -17,7 +17,7 @@ const evaluateGuess = (guess, correctAnswer) => {
 }
 
 const createDeck = (allCards) => {
-  let  deck = {
+  let deck = {
     cards: allCards
   }
   return deck
@@ -28,9 +28,20 @@ const countCards = (allCards) => {
   return deckLength
 }
 
+const createRound = (deck) => {
+  let round = {
+    deck: deck,
+    currentCard: deck.cards[0],
+    turns: 0,
+    incorrectGuesses: []
+  }
+  return round
+}
+
 module.exports = {
   createCard,
   evaluateGuess,
   createDeck,
   countCards,
+  createRound,
 }
