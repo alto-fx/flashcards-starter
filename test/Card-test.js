@@ -19,30 +19,37 @@ describe('card', function () {
 });
 
 describe("guess", () => {
+  it("should be a function", () => {
+    expect(createCard).to.be.a("function");
+  });
+
   it("should tell user guess is correct", () => {
-    const card = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object', 'array', 'function"], "object")
-    const userGuess = "object"
-    let guessResult = evaluateGuess(userGuess, card.correctAnswer)
-    expect(guessResult).to.equal("correct!")
-  })
+    const card = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const userGuess = "object";
+    let guessResult = evaluateGuess(userGuess, card.correctAnswer);
+    expect(guessResult).to.equal("correct!");
+  });
 
   it("should tell user guess is incorrect", () => {
-    const card = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object', 'array', 'function"], "object")
-    const userGuess = "array" || "function"
-    let guessResult = evaluateGuess(userGuess, card.correctAnswer)
-    expect(guessResult).to.equal("incorrect")
-  })
+    const card = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const userGuess = ["array", "function"];
+    let guessResult = evaluateGuess(userGuess, card.correctAnswer);
+    expect(guessResult).to.equal("incorrect");
+  });
 });
 
 describe("deck", () => {
   let card1, card2, card3, deck;
-
   beforeEach(() => {
     card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     deck = createDeck([card1, card2, card3])
   });
+
+  it("should be a function", () => {
+    expect(createDeck).to.be.a("function")
+  })
 
   it("should create a deck of cards", () => {
     expect(deck.cards).to.deep.equal([card1, card2, card3])
@@ -56,7 +63,6 @@ describe("deck", () => {
 
 describe("round", () => {
   let card1, card2, card3, deck, round;
-
   beforeEach(() => {
     card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
