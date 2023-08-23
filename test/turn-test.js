@@ -9,14 +9,14 @@ describe("guess", () => {
     expect(createCard).to.be.a("function");
   });
 
-  it("should tell user guess is correct", () => {
+  it("should give user feedback if guess is correct", () => {
     const card = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const userGuess = "object";
     let guessResult = evaluateGuess(userGuess, card.correctAnswer);
     expect(guessResult).to.equal("correct!");
   });
 
-  it("should tell user guess is incorrect", () => {
+  it("should give user feedback if guess is incorrect", () => {
     const card = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const userGuess = ["array", "function"];
     let guessResult = evaluateGuess(userGuess, card.correctAnswer);
@@ -25,6 +25,6 @@ describe("guess", () => {
 });
 
 describe("turn", () => {
-  it("should")
+  it("should update the turn count")
 
 })
