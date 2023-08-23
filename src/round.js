@@ -1,4 +1,3 @@
-const { evaluateGuess } = require('../src/card');
 
 const createRound = (deck) => {
   let round = {
@@ -10,6 +9,21 @@ const createRound = (deck) => {
   return round
 }
 
+const evaluateGuess = (guess, correctAnswer) => {
+  if (guess === correctAnswer) {
+    return "correct!"
+  } else {
+    return "incorrect"
+  }
+}
+
+const takeTurn = (guess, round) => {
+
+}
+
+
 module.exports = {
   createRound,
+  evaluateGuess,
+  takeTurn
 }

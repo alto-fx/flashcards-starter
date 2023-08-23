@@ -6,6 +6,11 @@ const evaluateGuess = (guess, correctAnswer) => {
   }
 }
 
+const takeTurn = (guess, round) => {
+
+}
+
 module.exports = {
   evaluateGuess,
+  takeTurn
 }
