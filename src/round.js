@@ -2,7 +2,7 @@
 const createRound = (deck) => {
   let round = {
     deck: deck,
-    currentCard: deck.cards[0],
+    currentCard: deck[0],
     turns: 0,
     incorrectGuesses: []
   }
@@ -18,7 +18,12 @@ const evaluateGuess = (guess, correctAnswer) => {
 }
 
 const takeTurn = (guess, round) => {
-
+  const feedback = evaluateGuess(guess, round.currentCard.correctAnswer);
+  if(feedback === "incorrect") {
+    round.incorrectGuesses.push(round.currentCard.id)
+  }
+  round.turns += 1
+  round.currentCard = round.deck[round.turns]
 }
 
 

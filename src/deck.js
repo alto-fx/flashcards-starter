@@ -1,12 +1,11 @@
-const createDeck = (allCards) => {
-  let deck = {
-    cards: allCards
-  }
+
+
+const createDeck = (deck) => {
   return deck
 }
 
-const countCards = (allCards) => {
-  let deckLength = allCards.cards.length
+const countCards = (deck) => {
+  let deckLength = deck.length
   return deckLength
 }
 

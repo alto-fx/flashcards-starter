@@ -18,7 +18,8 @@ describe("deck", () => {
   })
 
   it("should create a deck of cards", () => {
-    expect(deck.cards).to.deep.equal([card1, card2, card3])
+    const deck = createDeck([card1, card2, card3])
+    expect(deck).to.deep.equal([card1, card2, card3])
   });
 
   it("should count cards", () => {
