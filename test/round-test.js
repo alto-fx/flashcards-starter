@@ -62,7 +62,8 @@ describe("turn", () => {
   });
 
   it("should show answer is correct", () => {
-    const feedback = takeTurn("gallbladder", round);
+    // console.log("ROUND", round)
+    const feedback = takeTurn("sea otter", round);
     expect(feedback).to.equal("correct!");
   });
 
@@ -77,14 +78,15 @@ describe("turn", () => {
   });
 
   it("should store id of incorrect guesses in an array of incorrectGuesses", () => {
-    takeTurn("spleen", round)
-        // console.log(round.incorrectGuesses)
-        // console.log(round.currentCard.id)
-    expect(round.incorrectGuesses).to.deep.equal([14])
+    takeTurn("capybara", round)
+    expect(round.incorrectGuesses).to.deep.equal([1])
   })
 
-  it.skip("should update the next card to be the current card", () => {
+  it("should update the next card to be the current card", () => {
+    takeTurn("health is wealth", round)
     expect(round.currentCard).to.equal(deck[1])
+    takeTurn("Fitzgerald", round)
+    expect(round.currentCard).to.equal(deck[2])
   })
 });
 
