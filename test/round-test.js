@@ -66,11 +66,15 @@ describe("turn", () => {
     expect(round.turns).to.equal(1)
   });
 
+  it("should store id of incorrect guesses in an array of incorrectGuesses", () => {
+    takeTurn("capybara", round)
+    expect(round.incorrectGuesses).to.deep.equal([1])
+  })
+
   it("should update the next card to be the current card", () => {
     expect(round.currentCard).to.equal(deck[1])
   })
 
-  it("should ")
 });
 
 
