@@ -62,6 +62,7 @@ describe("turn", () => {
   });
 
   it("should increase the number of turns", () => {
+    takeTurn("sea otter", round)
     expect(round.turns).to.equal(1)
   });
 
