@@ -86,6 +86,18 @@ describe("turn", () => {
   it.skip("should update the next card to be the current card", () => {
     expect(round.currentCard).to.equal(deck[1])
   })
+});
+
+describe("calculate guess percentage", () => {
+  let card1, card2, card3, deck, round;
+
+  beforeEach(() => {
+    card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    deck = createDeck([card1, card2, card3])
+    round = createRound(deck)
+  });
 
   it("should show percentage of correct guesses", () => {
     takeTurn("sea otter", round)
@@ -94,13 +106,13 @@ describe("turn", () => {
     const percentageCorrect = calculatePercentCorrect(round)
     expect(percentageCorrect).to.equal(33)
   })
-
-  it("should show end of round message with correct guess percentage", () => {
+  
+  it("should show end of round message with percentage of correct guesses", () => {
     takeTurn("sea otter", round)
     takeTurn("spleen", round)
     takeTurn("Lex", round)
     const endRoundMessage = endRound(round)
     expect(endRoundMessage).to.equal(`** Round over! ** You answered 33% of the questions correctly!`)
   })
-});
+})
 
