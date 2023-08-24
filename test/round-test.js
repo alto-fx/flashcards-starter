@@ -112,7 +112,7 @@ describe("calculate guess percentage", () => {
     takeTurn("sea otter", round)
     takeTurn("spleen", round)
     takeTurn("Lex", round)
-    const endRoundMessage = endRound(round)
+    console.log(endRoundMessage)
     expect(endRoundMessage).to.equal(`** Round over! ** You answered 33% of the questions correctly!`)
   })
 })
