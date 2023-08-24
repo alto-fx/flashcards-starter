@@ -62,7 +62,6 @@ describe("turn", () => {
   });
 
   it("should show answer is correct", () => {
-    // console.log("ROUND", round)
     const feedback = takeTurn("sea otter", round);
     expect(feedback).to.equal("correct!");
   });
