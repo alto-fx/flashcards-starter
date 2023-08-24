@@ -24,6 +24,8 @@ const takeTurn = (guess, round) => {
   }
   round.turns += 1
   round.currentCard = round.deck[round.turns]
+
+  return feedback
 }
 
 
