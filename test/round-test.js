@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard, } = require('../src/card');
 const { createDeck } = require('../src/deck');
-const { createRound, evaluateGuess, takeTurn} = require('../src/round');
+const { createRound, evaluateGuess, takeTurn, calculatePercentCorrect} = require('../src/round');
 
 describe("round", () => {
   let card1, card2, card3, deck, round;
@@ -61,8 +61,8 @@ describe("turn", () => {
     expect(takeTurn).to.be.a("function");
   });
 
-  it("should show if answer is correct", () => {
-    const feedback = takeTurn("sea otter", round);
+  it("should show answer is correct", () => {
+    const feedback = takeTurn("gallbladder", round);
     expect(feedback).to.equal("correct!");
   });
 
@@ -71,15 +71,30 @@ describe("turn", () => {
     expect(round.turns).to.equal(1)
   });
 
+  it("should show answer is incorrect", () => {
+    const feedback = takeTurn("spleen", round);
+    expect(feedback).to.equal("incorrect");
+  });
+
   it("should store id of incorrect guesses in an array of incorrectGuesses", () => {
-    takeTurn("capybara", round)
-    expect(round.incorrectGuesses).to.deep.equal([1])
+    takeTurn("spleen", round)
+        // console.log(round.incorrectGuesses)
+        // console.log(round.currentCard.id)
+    expect(round.incorrectGuesses).to.deep.equal([14])
   })
 
   it.skip("should update the next card to be the current card", () => {
     expect(round.currentCard).to.equal(deck[1])
   })
 
+  it("should show percentage of correct guesses", () => {
+    takeTurn("sea otter", round)
+    takeTurn("spleen", round)
+    takeTurn("Lex", round)
+    const percentageCorrect = calculatePercentCorrect(round)
+    expect(percentageCorrect).to.equal(33)
+
+  })
 });
 
 
